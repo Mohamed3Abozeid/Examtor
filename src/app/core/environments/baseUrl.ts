@@ -1,5 +1,5 @@
 export const baseUrl = {
-  url: '',
+  url: 'loaclhost link',
 };
 
 export const authEndPoints = {
