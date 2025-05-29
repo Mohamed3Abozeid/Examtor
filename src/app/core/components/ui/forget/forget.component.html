@@ -1,1 +1,12 @@
-<p>forget works!</p>
+@if(userEmail=='' && resetCode =='')
+{
+<app-forget-data (userEmail)="resevEmail($event)"></app-forget-data>
+}
+
+@else if (userEmail!='' && resetCode =='') {
+<app-forget-code (code)="resevCode($event)"></app-forget-code>
+}
+
+@else {
+<app-forget-new></app-forget-new>
+}

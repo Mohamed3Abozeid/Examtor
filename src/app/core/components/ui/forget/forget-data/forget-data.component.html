@@ -1,0 +1,16 @@
+<!-- !form-div -->
+<form class="text-center  px-3  d-flex flex-column gap-4" [formGroup]="forget_form" (submit)="forgetFunc()">
+  <h2 class="mb-4 white-space-nowrap h1">Forget Your Password</h2>
+
+  <!-- !email inputs -->
+
+  <div class="input-fild">
+    <div class="input-Group">
+      <i class="fa-regular fa-envelope fa-xl"></i>
+      <input type="eamil" placeholder="Enter Your Email" formControlName="email" id="email">
+    </div>
+    <app-custom-error [formName]="forget_form" [inputName]="'email'"></app-custom-error>
+
+  </div>
+  <app-custom-btn [isLoading]="isLoading">submit</app-custom-btn>
+</form>

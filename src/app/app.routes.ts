@@ -1,9 +1,11 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/auth', pathMatch: 'full' },
+  { path: '', redirectTo: 'auth', pathMatch: 'full' },
+
+  // auth routes
   {
-    path: '/auth',
+    path: 'auth',
     loadComponent: () =>
       import('./core/layouts/auth/auth.component').then((m) => m.AuthComponent),
     children: [

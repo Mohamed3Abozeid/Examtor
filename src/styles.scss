@@ -11,7 +11,6 @@ body {
   --background-color: #feedf7;
   --white-color: #ffff;
   --bg-pink: #feedf7;
-  --primary-pink: #f82ba9;
   --primary-purple: #8c52ff;
   --primary-navy: #160e4b;
   --text-gray: #757f95;
@@ -19,7 +18,7 @@ body {
   --btn-shadow: #0000000d;
   --white: #ffffff;
   --font-main: "Inter", sans-serif;
-  --highlight-pink: #ec4899;
+  --hover-pink: #ca4186;
 }
 ::-webkit-scrollbar {
   width: 4px;
@@ -31,4 +30,69 @@ body {
   background-color: #f472b6;
   border-radius: 50px;
   box-shadow: 0 0 5px rgba(81, 72, 72, 0.5) inset;
+}
+
+.btn-pink {
+  background-color: var(--primary-color);
+}
+.text-pink {
+  color: var(--primary-color);
+}
+
+.btn-pink:hover {
+  background-color: var(--hover-pink);
+}
+
+.form-text-link {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+// forms style
+.input-fild {
+  position: relative;
+}
+
+::placeholder {
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: gray;
+}
+
+.fs-7 {
+  font-size: 0.8rem;
+  color: gray;
+}
+
+input:-webkit-autofill {
+  background-color: transparent !important;
+  // color: #e0e0e0 !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.input-Group {
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border-radius: 5px;
+  // border: 1px solid var(--primary-color);
+}
+
+.input-Group input {
+  width: 85%;
+  padding: 10px;
+  border-radius: 5px;
+  margin-left: 10px;
+  border: none;
+  outline: none;
+  background-color: transparent !important;
+  color: var(--text-color);
+  font-size: 1rem;
+}
+.passwordTogle {
+  position: absolute;
+  top: 22px;
+  right: 13px;
 }

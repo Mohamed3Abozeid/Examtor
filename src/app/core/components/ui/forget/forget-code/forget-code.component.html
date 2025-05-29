@@ -1,0 +1,32 @@
+<!-- !form-div -->
+
+<form class="text-center  px-3  d-flex flex-column gap-4" [formGroup]="codeResetForm" (submit)="codeResetFunc()">
+  <h2 class="mb-4  h2 text-capitalize">Comiferm code</h2>
+
+  <!-- !email inputs -->
+
+  <div class="input-fild">
+    <div class="input-Group">
+      <div class="d-flex justify-content-center">
+        <input type="text" class="form-control otp-input" maxlength="1" #otpInput (input)="moveNext($event, 0)"
+          (keydown)="movePrev($event, 0)" placeholder="*" />
+        <input type="text" class="form-control otp-input" maxlength="1" #otpInput (input)="moveNext($event, 1)"
+          (keydown)="movePrev($event, 1)" placeholder="*" />
+        <input type="text" class="form-control otp-input" maxlength="1" #otpInput (input)="moveNext($event, 2)"
+          (keydown)="movePrev($event, 2)" placeholder="*" />
+        <input type="text" class="form-control otp-input" maxlength="1" #otpInput (input)="moveNext($event, 3)"
+          (keydown)="movePrev($event, 3)" placeholder="*" />
+      </div>
+    </div>
+    <!-- <app-custom-error [formName]="codeResetForm" [inputName]="'username'"></app-custom-error> -->
+
+  </div>
+
+
+
+
+
+
+
+  <app-custom-btn [isLoading]="isLoading">submit</app-custom-btn>
+</form>
