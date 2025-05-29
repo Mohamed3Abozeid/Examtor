@@ -1,0 +1,46 @@
+<!-- !form-div -->
+<form class="text-center  px-3  d-flex flex-column gap-4" [formGroup]="passwordForm" (submit)="newPasswordFunc()">
+  <h2 class="mb-4  h1">New Password</h2>
+
+  <!-- !Password input -->
+  <div class="input-fild">
+    <div class="input-Group ">
+      <i class="fa-solid fa-key"></i>
+      <input [type]="passwordType ? 'text' : 'password'" placeholder="Enter Your password" formControlName="password"
+        id="email">
+    </div>
+
+    <span class="passwordTogle" (click)="passwordTogle()">
+      @if (passwordType) {
+      <i class="fa-solid fa-eye"></i> }
+      @else {<i class="fa-solid fa-eye-slash"></i>
+      }
+    </span>
+
+    <app-custom-error [formName]="passwordForm" [inputName]="'password'"></app-custom-error>
+
+  </div>
+  <!-- !rePassword input -->
+  <div class="input-fild">
+    <div class="input-Group ">
+      <i class="fa-solid fa-key"></i>
+      <input [type]="passwordType2 ? 'text' : 'password'" placeholder="comfermPassword" formControlName="rePassword"
+        id="email">
+    </div>
+
+    <span class="passwordTogle" (click)="passwordTogle2()">
+      @if (passwordType2) {
+      <i class="fa-solid fa-eye"></i> }
+      @else {<i class="fa-solid fa-eye-slash"></i>
+      }
+    </span>
+
+    <app-custom-error [formName]="passwordForm" [inputName]="'password'"></app-custom-error>
+
+  </div>
+
+
+
+
+  <app-custom-btn [isLoading]="isLoading">submit</app-custom-btn>
+</form>

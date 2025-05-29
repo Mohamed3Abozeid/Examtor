@@ -1,9 +1,9 @@
 export const baseUrl = {
-  url: 'loaclhost link',
+  url: 'http://127.0.0.1:80',
 };
 
 export const authEndPoints = {
-  login: `${baseUrl.url}/auth/login`,
+  login: `${baseUrl.url}/api/auth/token/`,
 };
 
 export const studentEndPoints = {
