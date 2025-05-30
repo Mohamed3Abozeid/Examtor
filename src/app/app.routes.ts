@@ -11,19 +11,20 @@ export const routes: Routes = [
     children: [
       { path: '', redirectTo: 'login', pathMatch: 'full' },
       {
-        path: 'forget-password',
-        loadComponent: () =>
-          import('./core/components/ui/forget/forget.component').then(
-            (m) => m.ForgetComponent
-          ),
-      },
-      {
         path: 'login',
         loadComponent: () =>
           import('./core/components/ui/login/login.component').then(
             (m) => m.LoginComponent
           ),
       },
+      {
+        path: 'forget-password',
+        loadComponent: () =>
+          import('./core/layouts/forget/forget.component').then(
+            (m) => m.ForgetComponent
+          ),
+      },
     ],
+    title: 'Login',
   },
 ];

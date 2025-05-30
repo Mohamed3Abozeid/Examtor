@@ -1,13 +1,14 @@
 import { Component, EventEmitter, inject, Output } from '@angular/core';
-import { CustomErrorComponent } from '../../../custom/custom-error/custom-error.component';
-import { CustomBtnComponent } from '../../../custom/custom-btn/custom-btn.component';
+import { CustomErrorComponent } from '../../../components/custom/custom-error/custom-error.component';
+import { CustomBtnComponent } from '../../../components/custom/custom-btn/custom-btn.component';
+import { AuthService } from '../../../services/auth.service';
+
 import {
   FormGroup,
   FormControl,
   Validators,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { AuthService } from '../../../../services/auth.service';
 
 @Component({
   selector: 'app-forget-data',

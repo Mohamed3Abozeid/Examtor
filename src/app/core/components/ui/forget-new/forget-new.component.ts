@@ -1,13 +1,13 @@
 import { Component, inject } from '@angular/core';
+import { CustomBtnComponent } from '../../custom/custom-btn/custom-btn.component';
+import { CustomErrorComponent } from '../../custom/custom-error/custom-error.component';
+import { Router } from '@angular/router';
 import {
   FormControl,
   FormGroup,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { Router } from 'express';
-import { CustomBtnComponent } from '../../../custom/custom-btn/custom-btn.component';
-import { CustomErrorComponent } from '../../../custom/custom-error/custom-error.component';
 
 @Component({
   selector: 'app-forget-new',

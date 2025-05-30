@@ -5,7 +5,7 @@
   <!-- !email inputs -->
   <div class="input-fild">
     <div class="input-Group">
-      <i class="fa-regular fa-envelope fa-xl text-pink"></i>
+      <i class="fa-regular fa-envelope fa-xl "></i>
       <input type="text" placeholder="Enter Your UserName" formControlName="username" id="userName">
     </div>
     <app-custom-error [formName]="loginForm" [inputName]="'username'"></app-custom-error>
@@ -14,7 +14,7 @@
   <!-- !Password input -->
   <div class="input-fild">
     <div class="input-Group ">
-      <i class="fa-solid fa-key text-pink"></i>
+      <i class="fa-solid fa-key "></i>
       <input [type]="passwordType ? 'text' : 'password'" placeholder="Enter Your password" formControlName="password"
         id="email">
     </div>
@@ -23,8 +23,8 @@
 
     <app-custom-error [formName]="loginForm" [inputName]="'password'"></app-custom-error>
     <!-- cutom btn -->
-    <div class="text-end me-2 mt-2" routerLink="auth/forget-password">
-      <a routerLink="/auth/forget-password" class="end-100  form-text-link p-1">Forget Password .?</a>
+    <div class="text-end me-2 mt-2">
+      <a class="end-100 form-text-link p-1" routerLink="/auth/forget-password">Forget Password .?</a>
     </div>
   </div>
   @if (loginError) {

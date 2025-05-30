@@ -7,14 +7,14 @@ import {
   QueryList,
   ViewChildren,
 } from '@angular/core';
-import { CustomBtnComponent } from '../../../custom/custom-btn/custom-btn.component';
+import { CustomBtnComponent } from '../../custom/custom-btn/custom-btn.component';
 import {
   FormControl,
   FormGroup,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { AuthService } from '../../../../services/auth.service';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-forget-code',

@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { ForgetNewComponent } from './forget-new/forget-new.component';
-import { ForgetCodeComponent } from './forget-code/forget-code.component';
-import { ForgetDataComponent } from './forget-data/forget-data.component';
+import { ForgetCodeComponent } from '../../components/ui/forget-code/forget-code.component';
+import { ForgetDataComponent } from '../../components/ui/forget-data/forget-data.component';
+import { ForgetNewComponent } from '../../components/ui/forget-new/forget-new.component';
 
 @Component({
   selector: 'app-forget',
-  imports: [ForgetNewComponent, ForgetCodeComponent, ForgetDataComponent],
+  imports: [ForgetCodeComponent, ForgetDataComponent, ForgetNewComponent],
   templateUrl: './forget.component.html',
   styleUrl: './forget.component.scss',
 })

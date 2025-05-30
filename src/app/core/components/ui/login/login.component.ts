@@ -26,6 +26,7 @@ export class LoginComponent {
   isLoading: boolean = false;
   passwordType: boolean = false;
   loginError: boolean = false;
+
   loginForm: FormGroup = new FormGroup({
     username: new FormControl(null, [Validators.required]),
     password: new FormControl(null, [Validators.required]),
@@ -34,18 +35,23 @@ export class LoginComponent {
   loginFun() {
     this.isLoading = true;
     this.loginError = false;
-    this._AuthService.loginHandle(this.loginForm.value).subscribe({
-      next: (data) => {
-        this.isLoading = false;
-        // this.decodedToken = this.decode.decodeToken(data.access);
-        // console.log(this.decodedToken);
-      },
-      error: (err) => {
-        console.log(err);
-        this.loginError = true;
-        this.isLoading = false;
-      },
-    });
+    if (this.loginForm.valid) {
+      this._AuthService.loginHandle(this.loginForm.value).subscribe({
+        next: (data) => {
+          this.isLoading = false;
+          // this.decodedToken = this.decode.decodeToken(data.access);
+          // console.log(this.decodedToken);
+        },
+        error: (err) => {
+          console.log(err);
+          this.loginError = true;
+          this.isLoading = false;
+        },
+      });
+    } else {
+      this.isLoading = false;
+      this.loginError = true;
+    }
 
     // this._Router.navigate(['/home']);
   }
