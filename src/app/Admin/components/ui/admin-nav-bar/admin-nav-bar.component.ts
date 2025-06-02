@@ -2,12 +2,12 @@ import { Component, inject } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
-  selector: 'app-student-nav',
+  selector: 'app-admin-nav-bar',
   imports: [RouterLink, RouterLinkActive],
-  templateUrl: './student-nav.component.html',
-  styleUrl: './student-nav.component.scss',
+  templateUrl: './admin-nav-bar.component.html',
+  styleUrl: './admin-nav-bar.component.scss',
 })
-export class StudentNavComponent {
+export class AdminNavBarComponent {
   private readonly _Router = inject(Router);
   userType = localStorage.getItem('userData');
   logOut() {

@@ -7,7 +7,7 @@
     <div class="input-Group ">
       <i class="fa-solid fa-key"></i>
       <input [type]="passwordType ? 'text' : 'password'" placeholder="Enter Your password" formControlName="password"
-        id="email">
+        id="password">
     </div>
 
     <span class="passwordTogle" (click)="passwordTogle()">
@@ -25,10 +25,10 @@
     <div class="input-Group ">
       <i class="fa-solid fa-key"></i>
       <input [type]="passwordType2 ? 'text' : 'password'" placeholder="comfermPassword" formControlName="rePassword"
-        id="email">
+        id="rePassword">
     </div>
 
-    <span class="passwordTogle" (click)="passwordTogle2()">
+    <span class=" passwordTogle" (click)="passwordTogle2()">
       @if (passwordType2) {
       <i class="fa-solid fa-eye"></i> }
       @else {<i class="fa-solid fa-eye-slash"></i>

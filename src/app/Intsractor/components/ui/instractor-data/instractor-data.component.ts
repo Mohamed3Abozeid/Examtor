@@ -1,17 +1,17 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { StudentApiService } from '../../../services/student-api.service';
-import { StudentApi } from '../../../interfaces/student-data';
 import { DatePipe } from '@angular/common';
+import { Component, inject } from '@angular/core';
+import { Instructor } from './../../../interfaces/instractor';
+import { InstractorService } from '../../../services/instractor.service';
 
 @Component({
-  selector: 'app-student-data',
+  selector: 'app-instractor-data',
   imports: [DatePipe],
-  templateUrl: './student-data.component.html',
-  styleUrl: './student-data.component.scss',
+  templateUrl: './instractor-data.component.html',
+  styleUrl: './instractor-data.component.scss',
 })
-export class StudentDataComponent implements OnInit {
-  private readonly _StudentApiService = inject(StudentApiService);
-  student!: StudentApi;
+export class InstractorDataComponent {
+  private readonly _InstractorService = inject(InstractorService);
+  instractor!: Instructor;
   ngOnInit(): void {
     const userId = localStorage.getItem('userId');
     if (userId) {
@@ -26,10 +26,10 @@ export class StudentDataComponent implements OnInit {
     }
   }
 
-  getStudentData(studentId: string) {
-    this._StudentApiService.getStudent(studentId).subscribe({
+  getStudentData(instractorId: string) {
+    this._InstractorService.getIntsractor(instractorId).subscribe({
       next: (data) => {
-        this.student = data;
+        this.instractor = data;
         console.log(data);
       },
       error: (err) => {

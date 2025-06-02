@@ -1,1 +1,99 @@
-<p>student-data works!</p>
+<section class="w-full mt-5">
+  <div class="container">
+    <div class="card shadow-lg rounded-4 border-0">
+      <div class="card-header  bg-pink ">
+        <h3 class="mb-0 text-white text-center text-capitalize heading3">Student Profile</h3>
+      </div>
+      <div class="card-body p-4 bg-light rounded-4">
+        <div class="row ">
+          <div class="col-md-6 ">
+
+
+            <!-- name tag -->
+            <div class="my-3">
+              <h6 class="text-pink m-0">Full Name : </h6>
+              <p class="paragraph-text ">
+                {{ student.first_name }} {{ student.second_name }} {{ student.third_name }} {{ student.fourth_name }}
+
+              </p>
+
+            </div>
+
+            <!-- username -->
+            <div class="my-3">
+              <h6 class="text-pink m-0">Username : </h6>
+              <p class="paragraph-text">{{ student.username }}</p>
+            </div>
+            <!-- email tag -->
+            <div class="my-3">
+              <h6 class="text-pink m-0">Email : </h6>
+              <p class="paragraph-text">{{ student.email }}</p>
+            </div>
+            <!-- phone tag -->
+            <div class="my-3">
+              <h6 class="text-pink m-0">Phone : </h6>
+              <p class="paragraph-text">{{ student.phone }}</p>
+            </div>
+            <!-- gender tag -->
+            <div class="my-3">
+              <h6 class="text-pink m-0">Gender : </h6>
+              @if (student.gender =='m') {
+              <p class=" paragraph-text">Male</p>
+
+              }
+              @else {<p class=" paragraph-text">Female</p>
+              }
+            </div>
+            <!-- birth date tag -->
+            <div class="my-3">
+              <h6 class="text-pink m-0">Birth Date : </h6>
+              <p class=" paragraph-text">{{ student.birth_date|date}}</p>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+
+            <!-- department -->
+            <div class="my-3">
+              <h6 class="text-pink m-0">Department :</h6>
+              <p class="paragraph-text">{{ student.department.title }}</p>
+            </div>
+            <!-- student level -->
+            <div class="my-3">
+              <h6 class="text-pink m-0">Student Level : </h6>
+              <p class="paragraph-text">Level: {{ student.level }}</p>
+            </div>
+            <!-- student cources -->
+            <div class="my-3">
+              <h6 class="text-pink m-0">Courses : </h6>
+              <div class="">
+                @for (course of student.courses; track $index) {
+                <p class="paragraph-text">{{ course.title }}</p> }
+              </div>
+
+            </div>
+
+            <div class="my-3">
+              <h6 class="text-pink m-0">Join Date : </h6>
+              <p class="paragraph-text">{{ student.date_joined | date}}</p>
+            </div>
+
+
+            <div class="my-3">
+              <h6 class="text-pink m-0">Address : </h6>
+              <p class="paragraph-text">{{ student.address }}, {{ student.city }}</p>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+</section>
