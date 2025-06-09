@@ -8,6 +8,13 @@ export interface Course {
   title: string;
 }
 
+export interface Allstudents {
+  count: number;
+  next: boolean;
+  previous: string;
+  results: StudentApi[];
+}
+
 export interface StudentApi {
   url: string;
   id: number;

@@ -43,12 +43,19 @@ export class LoginComponent implements OnDestroy {
     localStorage.setItem('userId', data.user_id.toString());
     localStorage.setItem('userData', data.user_role.toString());
 
-    if (data.user_role == 'student') {
-      this._router.navigate(['student']);
-    } else if (data.user_role == 'instructor') {
-      this._router.navigate(['instructor']);
-    } else if (data.user_role == 'admin') {
-      this._router.navigate(['admin']);
+    switch (data.user_role) {
+      case 'student':
+        this._router.navigate(['student']);
+        break;
+      case 'instructor':
+        this._router.navigate(['instructor']);
+        break;
+      case 'admin':
+        this._router.navigate(['admin']);
+        break;
+      default:
+        console.log('have an error in navigations');
+        break;
     }
   }
 

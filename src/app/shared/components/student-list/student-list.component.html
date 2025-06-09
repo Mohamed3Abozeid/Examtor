@@ -1,0 +1,28 @@
+<div class="container my-4">
+  <div class="d-flex justify-content-between align-items-center mt-5 mb-3">
+    <h2 class="heading3">Student List</h2>
+    <button class="btn btn-success">Add Student</button>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped table-hover">
+      <thead class="table-danger table-pink">
+        <tr>
+          <th>Index</th>
+          <th>Username</th>
+          <th>Department</th>
+          <th>Actions</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        @for (student of students; track $index) {
+        <tr>
+          <td>{{$index}}</td>
+          <td>{{student.username}}</td>
+          <td>{{student.department.title}}</td>
+          <td> Modiffy || Delet</td>
+        </tr> }
+
+      </tbody>
+    </table>
+  </div>

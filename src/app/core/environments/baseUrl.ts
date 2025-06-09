@@ -8,7 +8,7 @@ export const authEndPoints = {
 
 export const studentEndPoints = {
   getStudent: `${baseUrl.url}/accounts/students/`,
-  getStudents: `${baseUrl.url}/students`,
+  getAllStudents: `${baseUrl.url}/accounts/students`,
   addStudent: `${baseUrl.url}/student/add`,
   updateStudent: `${baseUrl.url}/student/update`,
   deleteStudent: `${baseUrl.url}/student/delete`,

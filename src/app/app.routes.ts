@@ -72,6 +72,13 @@ export const routes: Routes = [
             './Intsractor/components/ui/instractor-data/instractor-data.component'
           ).then((m) => m.InstractorDataComponent),
       },
+      {
+        path: 'student',
+        loadComponent: () =>
+          import(
+            './shared/components/student-list/student-list.component'
+          ).then((m) => m.StudentListComponent),
+      },
     ],
   },
 
@@ -91,6 +98,13 @@ export const routes: Routes = [
           import('./Admin/components/ui/admin-data/admin-data.component').then(
             (m) => m.AdminDataComponent
           ),
+      },
+      {
+        path: 'student',
+        loadComponent: () =>
+          import(
+            './shared/components/student-list/student-list.component'
+          ).then((m) => m.StudentListComponent),
       },
     ],
   },
