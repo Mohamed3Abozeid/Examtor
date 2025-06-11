@@ -34,6 +34,17 @@ export class StudentListComponent implements OnInit, OnDestroy {
     });
   }
 
+  deletStudent(studentId: number) {
+    this._StudentApiService.deletStudent(studentId).subscribe({
+      next: (data) => {
+        location.reload();
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
+
   ngOnDestroy(): void {
     if (this.sub) {
       this.sub.unsubscribe();

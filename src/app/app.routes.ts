@@ -106,6 +106,13 @@ export const routes: Routes = [
             './shared/components/student-list/student-list.component'
           ).then((m) => m.StudentListComponent),
       },
+      {
+        path: 'instractor',
+        loadComponent: () =>
+          import(
+            './shared/components/instractor-list/instractor-list.component'
+          ).then((m) => m.InstractorListComponent),
+      },
     ],
   },
 ];

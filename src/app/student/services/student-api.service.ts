@@ -19,4 +19,9 @@ export class StudentApiService {
   getAllStudent(): Observable<Allstudents> {
     return this._HttpClient.get<Allstudents>(studentEndPoints.getAllStudents);
   }
+  deletStudent(studentId: number): Observable<Allstudents> {
+    return this._HttpClient.delete<Allstudents>(
+      studentEndPoints.deleteStudent + studentId
+    );
+  }
 }

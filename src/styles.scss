@@ -169,7 +169,9 @@ h4 {
 .bg-bag-color {
   background-color: #8c52ff !important;
 }
-
+.pointer {
+  cursor: pointer;
+}
 // active link
 .active {
   color: var(--primary-color);

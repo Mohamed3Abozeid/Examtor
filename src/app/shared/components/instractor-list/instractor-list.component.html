@@ -1,1 +1,31 @@
-<p>instractor-list works!</p>
+<div class="container my-4 shadow px-4 py-2 rounded">
+  <div class="d-flex justify-content-between align-items-center mt-5 mb-3">
+    <h2 class="heading3">Instractor List</h2>
+    <button class="btn btn-pink text-white">Add Instractor</button>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped table-hover">
+      <thead class="table-danger table-pink">
+        <tr>
+          <th>Index</th>
+          <th>Username</th>
+          <th class="d-none d-md-block">Is Active</th>
+
+          <th>Moddify</th>
+          <th>Delet</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        @for (instractor of instractors; track $index) {
+        <tr>
+          <td>{{$index+1}}</td>
+          <td>{{instractor.username}}</td>
+          <td class="d-none d-md-block">{{instractor.is_active}}</td>
+          <td> <i class="fa-solid fa-pen text-warning pointer"></i></td>
+          <td> <i class="fa-solid fa-trash text-danger pointer" (click)="deletInstractor(instractor.id)"></i></td>
+        </tr> }
+
+      </tbody>
+    </table>
+  </div>

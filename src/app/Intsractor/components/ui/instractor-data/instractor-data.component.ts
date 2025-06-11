@@ -11,7 +11,7 @@ import { InstractorService } from '../../../services/instractor.service';
 })
 export class InstractorDataComponent {
   private readonly _InstractorService = inject(InstractorService);
-  instractor!: Instructor;
+  instractor!: Instructor[];
   ngOnInit(): void {
     const userId = localStorage.getItem('userId');
     if (userId) {
@@ -29,7 +29,7 @@ export class InstractorDataComponent {
   getStudentData(instractorId: string) {
     this._InstractorService.getIntsractor(instractorId).subscribe({
       next: (data) => {
-        this.instractor = data;
+        this.instractor = data.results;
         console.log(data);
       },
       error: (err) => {

@@ -1,0 +1,13 @@
+.table-danger {
+  --bs-table-color: #fff;
+  --bs-table-bg: var(--primary-color);
+  --bs-table-border-color: var(--hover-pink);
+  --bs-table-striped-bg: #eccccf;
+  --bs-table-striped-color: #000;
+  --bs-table-active-bg: #dfc2c4;
+  --bs-table-active-color: #000;
+  --bs-table-hover-bg: #e5c7ca;
+  --bs-table-hover-color: #000;
+  color: var(--bs-table-color);
+  border-color: var(--bs-table-border-color);
+}

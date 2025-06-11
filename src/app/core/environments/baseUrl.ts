@@ -11,15 +11,15 @@ export const studentEndPoints = {
   getAllStudents: `${baseUrl.url}/accounts/students`,
   addStudent: `${baseUrl.url}/student/add`,
   updateStudent: `${baseUrl.url}/student/update`,
-  deleteStudent: `${baseUrl.url}/student/delete`,
+  deleteStudent: `${baseUrl.url}/accounts/students/`,
 };
 
 export const InstractorEndPoints = {
   getInstractor: `${baseUrl.url}/accounts/instructors/`,
-  getAllInstractors: `${baseUrl.url}/Instractors`,
+  getAllInstractors: `${baseUrl.url}/accounts/Instractors`,
   addInstractor: `${baseUrl.url}/Instractor/add`,
   updateInstractor: `${baseUrl.url}/Instractor/update`,
-  deleteInstractor: `${baseUrl.url}/Instractor/delete`,
+  deleteInstractor: `${baseUrl.url}/accounts/instructors/`,
 };
 
 export const AdminEndPoints = {
