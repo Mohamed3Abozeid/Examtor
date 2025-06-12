@@ -92,6 +92,7 @@ export const routes: Routes = [
       ),
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
+      // admin home page
       {
         path: 'home',
         loadComponent: () =>
@@ -99,6 +100,7 @@ export const routes: Routes = [
             (m) => m.AdminDataComponent
           ),
       },
+      // student list
       {
         path: 'student',
         loadComponent: () =>
@@ -106,6 +108,7 @@ export const routes: Routes = [
             './shared/components/student-list/student-list.component'
           ).then((m) => m.StudentListComponent),
       },
+      // instractor list
       {
         path: 'instractor',
         loadComponent: () =>
@@ -113,12 +116,22 @@ export const routes: Routes = [
             './shared/components/instractor-list/instractor-list.component'
           ).then((m) => m.InstractorListComponent),
       },
+      // add instractor
       {
-        path: 'addInstractor',
+        path: 'instractor/addInstractor',
         loadComponent: () =>
           import(
             './Intsractor/components/ui/add-instractors/add-instractors.component'
           ).then((m) => m.AddInstractorsComponent),
+      },
+
+      // add student
+      {
+        path: 'student/addStudnet',
+        loadComponent: () =>
+          import(
+            './student/components/ui/add-student/add-student.component'
+          ).then((m) => m.AddStudentComponent),
       },
     ],
   },

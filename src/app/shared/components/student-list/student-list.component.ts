@@ -5,10 +5,11 @@ import {
   StudentApi,
 } from './../../../student/interfaces/student-data';
 import { Subscription } from 'rxjs';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-student-list',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './student-list.component.html',
   styleUrl: './student-list.component.scss',
 })
