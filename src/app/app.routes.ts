@@ -113,6 +113,13 @@ export const routes: Routes = [
             './shared/components/instractor-list/instractor-list.component'
           ).then((m) => m.InstractorListComponent),
       },
+      {
+        path: 'addInstractor',
+        loadComponent: () =>
+          import(
+            './Intsractor/components/ui/add-instractors/add-instractors.component'
+          ).then((m) => m.AddInstractorsComponent),
+      },
     ],
   },
 ];

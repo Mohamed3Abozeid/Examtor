@@ -1,95 +1,88 @@
 <section class="w-full mt-5">
-    <div class="container">
-        <div class="card shadow-lg rounded-4 border-0">
-            <div class="card-header  bg-pink ">
-                <h3 class="mb-0 text-white text-center text-capitalize heading3">admin Profile</h3>
+  <div class="container">
+    <div class="card shadow-lg rounded-4 border-0">
+      <div class="card-header  bg-pink ">
+        <h3 class="mb-0 text-white text-center text-capitalize heading3">admin Profile</h3>
+      </div>
+      <div class="card-body p-4 bg-light rounded-4">
+        <div class="row ">
+          <div class="col-md-6 ">
+            <!-- name tag -->
+            <div class="my-3">
+              <h6 class="text-pink m-0">Full Name : </h6>
+              <p class="paragraph-text ">
+                {{ admin.first_name }} {{ admin.second_name }} {{ admin.third_name }} {{
+                admin.fourth_name }}
+
+              </p>
+
             </div>
-            <div class="card-body p-4 bg-light rounded-4">
-                <div class="row ">
-                    <div class="col-md-6 ">
-                        <!-- name tag -->
-                        <div class="my-3">
-                            <h6 class="text-pink m-0">Full Name : </h6>
-                            <p class="paragraph-text ">
-                                {{ admin.first_name }} {{ admin.second_name }} {{ admin.third_name }} {{
-                                admin.fourth_name }}
 
-                            </p>
-
-                        </div>
-
-                        <!-- username -->
-                        <div class="my-3">
-                            <h6 class="text-pink m-0">Username : </h6>
-                            <p class="paragraph-text">{{ admin.username }}</p>
-                        </div>
-
-
-                        <!-- gender tag -->
-                        <div class="my-3">
-                            <h6 class="text-pink m-0">Gender : </h6>
-                            @if (admin.gender =='m') {
-                            <p class=" paragraph-text">Male</p>
-
-                            }
-                            @else {<p class=" paragraph-text">Female</p>
-                            }
-                        </div>
-                        <!-- birth date tag -->
-                        <div class="my-3">
-                            <h6 class="text-pink m-0">Birth Date : </h6>
-                            <p class=" paragraph-text">{{ admin.birth_date|date}}</p>
-                        </div>
-                        <!-- Active  tag -->
-                        <div class="my-3">
-                            <h6 class="text-pink m-0">Is Active : </h6>
-                            <p class=" paragraph-text">{{ admin.is_active}}</p>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <!-- Specialisted in tag -->
-                        <div class="my-3">
-                            <h6 class="text-pink m-0">specialized_In : </h6>
-
-                            <p class=" paragraph-text">{{admin.is_superuser}}</p>
-
-
-                        </div>
-
-                        <!-- email tag -->
-                        <div class="my-3">
-                            <h6 class="text-pink m-0">Email : </h6>
-                            <p class="paragraph-text">{{ admin.email }}</p>
-                        </div>
-                        <!-- phone tag -->
-                        <div class="my-3">
-                            <h6 class="text-pink m-0">Phone : </h6>
-                            <p class="paragraph-text">{{ admin.phone }}</p>
-                        </div>
-                        <!-- join date -->
-                        <div class="my-3">
-                            <h6 class="text-pink m-0">Join Date : </h6>
-                            <p class="paragraph-text">{{ admin.date_joined | date}}</p>
-                        </div>
-
-                        <!-- address -->
-                        <div class="my-3">
-                            <h6 class="text-pink m-0">Address : </h6>
-                            <p class="paragraph-text">{{ admin.address }}, {{ admin.city }}</p>
-                        </div>
-
-
-
-                    </div>
-
-
-                </div>
+            <!-- username -->
+            <div class="my-3">
+              <h6 class="text-pink m-0">Username : </h6>
+              <p class="paragraph-text">{{ admin.username }}</p>
             </div>
+
+
+            <!-- gender tag -->
+            <div class="my-3">
+              <h6 class="text-pink m-0">Gender : </h6>
+              @if (admin.gender =='m') {
+              <p class=" paragraph-text">Male</p>
+
+              }
+              @else {<p class=" paragraph-text">Female</p>
+              }
+            </div>
+            <!-- birth date tag -->
+            <div class="my-3">
+              <h6 class="text-pink m-0">Birth Date : </h6>
+              <p class=" paragraph-text">{{ admin.birth_date|date}}</p>
+            </div>
+            <!-- Active  tag -->
+            <div class="my-3">
+              <h6 class="text-pink m-0">Is Active : </h6>
+              <p class=" paragraph-text">{{ admin.is_active}}</p>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+
+
+            <!-- email tag -->
+            <div class="my-3">
+              <h6 class="text-pink m-0">Email : </h6>
+              <p class="paragraph-text">{{ admin.email }}</p>
+            </div>
+            <!-- phone tag -->
+            <div class="my-3">
+              <h6 class="text-pink m-0">Phone : </h6>
+              <p class="paragraph-text">{{ admin.phone }}</p>
+            </div>
+            <!-- join date -->
+            <div class="my-3">
+              <h6 class="text-pink m-0">Join Date : </h6>
+              <p class="paragraph-text">{{ admin.date_joined | date}}</p>
+            </div>
+
+            <!-- address -->
+            <div class="my-3">
+              <h6 class="text-pink m-0">Address : </h6>
+              <p class="paragraph-text">{{ admin.address }}, {{ admin.city }}</p>
+            </div>
+
+
+
+          </div>
 
 
         </div>
+      </div>
+
+
     </div>
+  </div>
 
 
 

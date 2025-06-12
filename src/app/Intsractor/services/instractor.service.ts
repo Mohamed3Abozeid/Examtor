@@ -12,8 +12,8 @@ export class InstractorService {
 
   constructor() {}
 
-  getIntsractor(instractorId: string): Observable<InstructorsApiRes> {
-    return this._HttpClient.get<InstructorsApiRes>(
+  getIntsractor(instractorId: string): Observable<Instructor> {
+    return this._HttpClient.get<Instructor>(
       InstractorEndPoints.getInstractor + instractorId
     );
   }
@@ -22,6 +22,7 @@ export class InstractorService {
       InstractorEndPoints.getInstractor
     );
   }
+
   deletInstractors(instractorId: number): Observable<Instructor> {
     return this._HttpClient.delete<Instructor>(
       InstractorEndPoints.deleteInstractor + instractorId

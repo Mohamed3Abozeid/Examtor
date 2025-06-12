@@ -11,13 +11,13 @@ import { InstractorService } from '../../../services/instractor.service';
 })
 export class InstractorDataComponent {
   private readonly _InstractorService = inject(InstractorService);
-  instractor!: Instructor[];
+  instractor!: Instructor;
   ngOnInit(): void {
     const userId = localStorage.getItem('userId');
     if (userId) {
       const token = localStorage.getItem('token');
       if (token) {
-        this.getStudentData(userId);
+        this.getInstractorData(userId);
       } else {
         console.error('No token found in localStorage');
       }
@@ -26,10 +26,10 @@ export class InstractorDataComponent {
     }
   }
 
-  getStudentData(instractorId: string) {
+  getInstractorData(instractorId: string) {
     this._InstractorService.getIntsractor(instractorId).subscribe({
       next: (data) => {
-        this.instractor = data.results;
+        this.instractor = data;
         console.log(data);
       },
       error: (err) => {

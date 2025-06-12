@@ -2,10 +2,11 @@ import { Component, inject } from '@angular/core';
 import { InstractorService } from '../../../Intsractor/services/instractor.service';
 import { Subscription } from 'rxjs';
 import { Instructor } from '../../../Intsractor/interfaces/instractor';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-instractor-list',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './instractor-list.component.html',
   styleUrl: './instractor-list.component.scss',
 })
