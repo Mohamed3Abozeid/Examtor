@@ -1,3 +1,4 @@
+import { Choice } from './../../interfaces/exam';
 import { Component, ElementRef, inject, Input, ViewChild } from '@angular/core';
 import { ExamApiService } from '../../services/exam-api.service';
 import {
@@ -17,10 +18,11 @@ declare var bootstrap: any;
 })
 export class ChoicesModalComponent {
   private readonly _examApis = inject(ExamApiService);
-  // @ViewChild('modalElement2') modalElement2!: ElementRef;
+  @ViewChild('modalB') modalRef!: ElementRef;
   // @Input() examId!: number;
   dataError: boolean = false;
   isLoading: boolean = false;
+  numberOfQuestions: number = 0;
   modalInstance: any;
   numQuestions!: number;
   questionForm: FormGroup = new FormGroup({
@@ -32,8 +34,6 @@ export class ChoicesModalComponent {
     text: new FormControl('', [Validators.required]),
     is_correct: new FormControl(false, [Validators.required]),
   });
-
-  @ViewChild('modalB') modalRef!: ElementRef;
 
   ngAfterViewInit() {
     this.modalInstance = new bootstrap.Modal(this.modalRef.nativeElement);
@@ -56,6 +56,23 @@ export class ChoicesModalComponent {
       },
       error: (err) => {
         console.error('Error adding question:', err);
+      },
+    });
+  }
+
+  // questions choice
+
+  addChoice() {
+    console.log(this.choicesForm.value);
+
+    this._examApis.addChoices(this.choicesForm.value).subscribe({
+      next: (res) => {
+        console.log('Choice added successfully:', res);
+        this.choicesForm.reset();
+      },
+      error: (err) => {
+        console.error('Error adding choice:', err);
+        this.dataError = true;
       },
     });
   }
