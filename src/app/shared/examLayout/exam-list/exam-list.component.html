@@ -1,0 +1,34 @@
+<div class="container my-4 shadow px-4 py-2 rounded">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="heading3">Exams List</h2>
+    <button class="btn btn-pink text-white" routerLink="addExam" (click)="modal?.open()">Add Exam</button>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped table-hover">
+      <thead class="table-danger table-pink">
+        <tr>
+          <th>Index</th>
+          <th>Title</th>
+          <th class="d-none d-md-table-cell">Instractor</th>
+          <th class="d-none d-md-table-cell">Start Date</th>
+          <th class="d-none d-md-table-cell">End Date</th>
+          <th>Exam Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (exam of exams; track $index) {
+        <tr>
+          <td>{{$index+1}}</td>
+          <td>{{exam.title}}</td>
+          <td>{{exam.instructor.username}}</td>
+          <td class="d-none d-md-table-cell">{{ exam.start_date | date:'yyyy-MM-dd HH:mm' }}</td>
+          <td class="d-none d-md-table-cell">{{exam.end_date |date:'yyyy-MM-dd HH:mm'}}</td>
+          <td class="d-none d-md-table-cell">{{exam.exam_score}}</td>
+
+        </tr> }
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Add exam Modal component -->
+  <app-add-exam #modal></app-add-exam>

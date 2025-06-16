@@ -1,58 +1,43 @@
-<h3 class="mb-4 p-3 bg-pink text-white rounded text-center container mt-5">Add Instructor</h3>
-<div class="container mb-5 shadow p-3 rounded">
+<div class="container shadow   rounded my-5 p-0 ">
+  <h3 class="mb-4 p-3 bg-pink text-white  text-center rounded">Add Instructor</h3>
 
-  <form [formGroup]="addInstractorForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="addInstractorForm" (ngSubmit)="onSubmit()" class="p-3">
     <div class="row">
-      <div class="col-md-6 mb-3">
+      <div class="col-md-4 mb-3">
         <label>Username</label>
-        <input formControlName="username" class="form-control" />
+        <input formControlName="username" class="form-control" placeholder="enter username" />
       </div>
-
-      <div class="col-md-6 mb-3">
-        <label>User Type</label>
-        <select formControlName="user_type" class="form-select" [disabled]="true">
-          <option value="1">Admin</option>
-          <option value="2" selected>Instructor</option>
-          <option value="3">Student</option>
-        </select>
-      </div>
-
-      <div class="col-md-6 mb-3">
+      <div class="col-md-4 mb-3">
         <label>Email</label>
-        <input formControlName="email" class="form-control" type="email" />
+        <input formControlName="email" class="form-control" placeholder="example@hoter" type="email" />
       </div>
 
-      <div class="col-md-6 mb-3">
+
+      <div class="col-md-4 mb-3">
         <label>Password</label>
-        <input formControlName="password" class="form-control" type="password" />
+        <input formControlName="password" class="form-control" type="password" placeholder="* * * * * * * * * * " />
       </div>
 
-      <div class="col-md-6 mb-3">
+      <div class="col-md-4 mb-3">
         <label>First Name</label>
-        <input formControlName="first_name" class="form-control" />
+        <input formControlName="first_name" class="form-control" placeholder="instractor first name" />
       </div>
 
-      <div class="col-md-6 mb-3">
+      <div class="col-md-4 mb-3">
         <label>Second Name</label>
-        <input formControlName="second_name" class="form-control" />
+        <input formControlName="second_name" class="form-control" placeholder="instractor second name" />
       </div>
 
-      <div class="col-md-6 mb-3">
+      <div class="col-md-4 mb-3">
         <label>Third Name</label>
-        <input formControlName="third_name" class="form-control" />
+        <input formControlName="third_name" class="form-control" placeholder="instractor third name" />
       </div>
-
-      <div class="col-md-6 mb-3">
-        <label>Fourth Name</label>
-        <input formControlName="fourth_name" class="form-control" />
-      </div>
-
-      <div class="col-md-6 mb-3">
+      <div class="col-md-4 mb-3">
         <label>Last Name</label>
-        <input formControlName="last_name" class="form-control" />
+        <input formControlName="last_name" class="form-control" placeholder="instractor last name" />
       </div>
 
-      <div class="col-md-6 mb-3">
+      <div class="col-md-4 mb-3">
         <label>Gender</label>
         <select formControlName="gender" class="form-select">
           <option value="m">Male</option>
@@ -60,35 +45,50 @@
         </select>
       </div>
 
-      <div class="col-md-6 mb-3">
+      <div class="col-md-4 mb-3">
         <label>Birth Date</label>
         <input type="date" formControlName="birth_date" class="form-control" />
       </div>
 
-      <div class="col-md-6 mb-3">
+      <div class="col-md-4 mb-3">
         <label>City</label>
-        <input formControlName="city" class="form-control" />
+        <input formControlName="city" class="form-control" placeholder="cairo" />
       </div>
 
-      <div class="col-md-6 mb-3">
+      <div class="col-md-4 mb-3">
         <label>Address</label>
-        <input formControlName="address" class="form-control" />
+        <input formControlName="address" class="form-control" placeholder="instractor address" />
       </div>
 
-      <div class="col-md-6 mb-3">
+      <div class="col-md-4 mb-3">
         <label>Phone</label>
-        <input formControlName="phone" class="form-control" />
+        <input formControlName="phone" class="form-control" placeholder="0123456789" />
       </div>
 
-      <div class="col-md-6 mb-3">
+      <div class="col-md-4 mb-3">
         <label>Specialized In</label>
-        <input formControlName="specialized_in" class="form-control" />
+        <input formControlName="specialized_in" class="form-control" placeholder="software" />
+      </div>
+      <div class="col-md-4 mb-3 pt-4 text-center">
+        @if (instractorDataError) {
+        <p class="alert alert-danger p-2 text-danger">{{instractorDataError}}</p>
+
+        }
       </div>
 
-      <div class="col-md-6  mb-3 pt-4">
-        <button type="submit" class="btn btn-pink text-white d-block w-100">
-          Add Instractor
+
+
+      <div class="col-md-4 ms-auto  mb-3 pt-4">
+
+        <button class="btn btn-pink px-5 text-white d-block w-100 ">
+
+          @if (isLoading) {
+          <i class="fa fa-solid fa-spin fa-spinner text-white"></i>
+          }
+          @else {Add Instractor}
+
         </button>
+
       </div>
     </div>
   </form>

@@ -3,11 +3,6 @@ export interface Department {
   title: string;
 }
 
-export interface Course {
-  id: number;
-  title: string;
-}
-
 export interface Allstudents {
   count: number;
   next: boolean;
@@ -38,4 +33,74 @@ export interface StudentApi {
   is_superuser: boolean;
   date_joined: string; // ISO timestamp
   user_type: number;
+}
+
+export interface StudentData {
+  // Required Fields
+  username: string; // Must be unique
+  email: string; // Must be unique
+  password: string;
+  first_name: string;
+  second_name: string;
+  gender: 'm' | 'f';
+  birth_date: string; // Format: YYYY-MM-DD
+  user_type: 1 | 2 | 3; // 1 => Admin, 2 => Instructor, 3 => Student
+  department: number; // Must refer to existing department
+  level: number; // Must refer to existing level
+  courses: number[]; // Array of course IDs
+
+  // Optional Fields
+  third_name?: string;
+  fourth_name?: string;
+  last_name?: string;
+  city?: string;
+  address?: string;
+  phone?: string;
+  is_active?: boolean;
+  is_staff?: boolean;
+  is_superuser?: boolean;
+}
+
+export interface departmentApiRes {
+  count: number;
+  next: string | null;
+  previous: string | null;
+  results: Department[];
+}
+
+export interface Level {
+  url: string;
+  level_number: number;
+}
+
+export interface levelApiRes {
+  count: number;
+  next: string | null;
+  previous: string | null;
+  results: Level[];
+}
+
+export interface InstructorInfo {
+  id: number;
+  username: string;
+  first_name: string;
+  second_name: string;
+}
+
+export interface Course {
+  url: string;
+  id: number;
+  course_code: string;
+  title: string;
+  description: string;
+  duration: number; // e.g., in weeks or hours
+  level: number;
+  instructor: InstructorInfo;
+}
+
+export interface CourseApiRes {
+  count: number;
+  next: string | null;
+  previous: string | null;
+  results: Course[];
 }

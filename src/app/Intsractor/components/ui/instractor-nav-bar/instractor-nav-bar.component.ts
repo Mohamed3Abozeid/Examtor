@@ -3,7 +3,7 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-instractor-nav-bar',
-  imports: [],
+  imports: [RouterLink, RouterLinkActive],
   templateUrl: './instractor-nav-bar.component.html',
   styleUrl: './instractor-nav-bar.component.scss',
 })

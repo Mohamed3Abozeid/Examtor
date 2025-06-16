@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-
 export const routes: Routes = [
   { path: '', redirectTo: 'auth', pathMatch: 'full' },
 
@@ -79,6 +78,14 @@ export const routes: Routes = [
             './shared/components/student-list/student-list.component'
           ).then((m) => m.StudentListComponent),
       },
+      // exam list
+      {
+        path: 'exams',
+        loadComponent: () =>
+          import('./shared/examLayout/exam-list/exam-list.component').then(
+            (m) => m.ExamListComponent
+          ),
+      },
     ],
   },
 
@@ -132,6 +139,15 @@ export const routes: Routes = [
           import(
             './student/components/ui/add-student/add-student.component'
           ).then((m) => m.AddStudentComponent),
+      },
+
+      // exam list
+      {
+        path: 'exams',
+        loadComponent: () =>
+          import('./shared/examLayout/exam-list/exam-list.component').then(
+            (m) => m.ExamListComponent
+          ),
       },
     ],
   },

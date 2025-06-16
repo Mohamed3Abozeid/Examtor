@@ -1,8 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { baseUrl, InstractorEndPoints } from '../../core/environments/baseUrl';
-import { Instructor, InstructorsApiRes } from './../interfaces/instractor';
+import { InstractorEndPoints } from '../../core/environments/baseUrl';
+import {
+  Instructor,
+  InstructorsApiRes,
+  InstructorData,
+} from './../interfaces/instractor';
 
 @Injectable({
   providedIn: 'root',
@@ -23,6 +27,12 @@ export class InstractorService {
     );
   }
 
+  addInstractors(iinstractorData: InstructorData): Observable<Instructor> {
+    return this._HttpClient.post<Instructor>(
+      InstractorEndPoints.addInstractor,
+      iinstractorData
+    );
+  }
   deletInstractors(instractorId: number): Observable<Instructor> {
     return this._HttpClient.delete<Instructor>(
       InstractorEndPoints.deleteInstractor + instractorId

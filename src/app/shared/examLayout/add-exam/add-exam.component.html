@@ -1,0 +1,61 @@
+<div class="modal fade" id="modal1" tabindex="-1" aria-labelledby="modal1Label" aria-hidden="true"
+  data-bs-backdrop="static" data-bs-keyboard="false" #modalA>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title text-pink" id="modal1Label">Add Exam</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="addExamForm">
+          <div class="mb-3">
+            <label for="title" class="form-label">Exam Title</label>
+            <input type="text" id="title" class="form-control" formControlName="title" placeholder="Enter Exam Title" />
+
+          </div>
+
+
+          <div class="mb-3">
+            <label for="course" class="form-label">Course</label>
+            <select id="course" class="form-control" formControlName="course">
+              @for (course of cources; track $index) {
+              <option [value]="course.id">{{ course.title }}</option>
+
+              }
+            </select>
+
+          </div>
+
+          <div class="mb-3">
+            <label for="start_date" class="form-label">Start Date</label>
+            <input type="datetime-local" id="start_date" class="form-control" formControlName="start_date" />
+
+          </div>
+
+          <div class="mb-3">
+            <label for="end_date" class="form-label">End Date</label>
+            <input type="datetime-local" id="end_date" class="form-control" formControlName="end_date" />
+
+          </div>
+
+
+
+          <div class="mb-3">
+            <label for="exam_score" class="form-label">Exam Score</label>
+            <input type="number" id="exam_score" class="form-control" formControlName="exam_score" />
+          </div>
+
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-pink text-white w-100" (click)="addExam()">Adding Exam</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<app-choices-modal #modalBComp></app-choices-modal>

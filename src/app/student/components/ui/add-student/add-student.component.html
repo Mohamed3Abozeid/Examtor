@@ -1,1 +1,98 @@
-<p>add-student works!</p>
+<div class="container shadow rounded my-5 p-0">
+  <h3 class="mb-4 p-3 bg-pink text-white text-center rounded">Add Student</h3>
+
+  <form [formGroup]="addStudentForm" (ngSubmit)="onSubmit()" class="p-3">
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <label>Username</label>
+        <input formControlName="username" class="form-control" placeholder="Enter username" />
+      </div>
+      <div class="col-md-4 mb-3">
+        <label>Email</label>
+        <input formControlName="email" class="form-control" placeholder="example@domain.com" type="email" />
+      </div>
+      <div class="col-md-4 mb-3">
+        <label>Password</label>
+        <input formControlName="password" class="form-control" type="password" placeholder="**********" />
+      </div>
+      <div class="col-md-4 mb-3">
+        <label>First Name</label>
+        <input formControlName="first_name" class="form-control" placeholder="First name" />
+      </div>
+      <div class="col-md-4 mb-3">
+        <label>Second Name</label>
+        <input formControlName="second_name" class="form-control" placeholder="Second name" />
+      </div>
+
+
+      <div class="col-md-4 mb-3">
+        <label>Last Name</label>
+        <input formControlName="last_name" class="form-control" placeholder="Last name" />
+      </div>
+      <div class="col-md-4 mb-3">
+        <label>Gender</label>
+        <select formControlName="gender" class="form-select">
+          <option value="m">Male</option>
+          <option value="f">Female</option>
+        </select>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label>Birth Date</label>
+        <input type="date" formControlName="birth_date" class="form-control" />
+      </div>
+      <div class="col-md-4 mb-3">
+        <label>Department</label>
+        <select formControlName="department" class="form-select">
+          @for (department of departments; track $index) {
+          <option [value]="department.id">{{department.title}}</option>
+          }
+        </select>
+      </div>
+
+
+      <div class="col-md-4 mb-3">
+        <label>Courses</label>
+        <select formControlName="courses" class="form-select">
+          @for (course of courses; track $index) {
+          <option [value]="course.id">{{course.title}}</option>
+          }
+        </select>
+      </div>
+
+
+
+      <div class="col-md-4 mb-3">
+        <label>Level</label>
+        <select formControlName="level" class="form-select">
+          @for (level of levels; track $index) {
+          <option [value]="level.level_number">{{level.level_number}}</option> }
+        </select>
+      </div>
+
+      <div class="col-md-4 mb-3">
+        <label>City</label>
+        <input formControlName="city" class="form-control" placeholder="City" />
+      </div>
+      <div class="col-md-4 mb-3">
+        <label>Address</label>
+        <input formControlName="address" class="form-control" placeholder="Address" />
+      </div>
+      <div class="col-md-4 mb-3">
+        <label>Phone</label>
+        <input formControlName="phone" class="form-control" placeholder="+201111111111" />
+      </div>
+
+
+      <div class="col-md-4 ms-auto mb-3 pt-4">
+        <button class="btn btn-pink px-5 text-white d-block w-100">
+          @if (isLoading) {
+          <i class="fa fa-solid fa-spin fa-spinner text-white"></i>
+          }
+          @else {Add Student}
+        </button>
+      </div>
+
+
+    </div>
+  </form>
+</div>

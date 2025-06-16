@@ -1,10 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnDestroy } from '@angular/core';
 import {
   FormControl,
   FormGroup,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { InstractorService } from '../../../services/instractor.service';
+import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-instractors',
@@ -12,7 +15,10 @@ import {
   templateUrl: './add-instractors.component.html',
   styleUrl: './add-instractors.component.scss',
 })
-export class AddInstractorsComponent {
+export class AddInstractorsComponent implements OnDestroy {
+  private readonly _InstractorService = inject(InstractorService);
+  private readonly _router = inject(Router);
+  sub!: Subscription;
   addInstractorForm: FormGroup = new FormGroup({
     username: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -31,11 +37,35 @@ export class AddInstractorsComponent {
     address: new FormControl(''),
     phone: new FormControl(''),
     is_active: new FormControl(true),
-    is_staff: new FormControl(false),
-    is_superuser: new FormControl(false),
+    is_staff: new FormControl(true),
+    is_superuser: new FormControl(true),
   });
 
+  isLoading: boolean = false;
+  instractorDataError: string = '';
+
   onSubmit() {
-    console.log('add instractors');
+    this.isLoading = true;
+    this.instractorDataError = '';
+    this.sub = this._InstractorService
+      .addInstractors(this.addInstractorForm.value)
+      .subscribe({
+        next: (data) => {
+          this.isLoading = false;
+          console.log(data);
+          this._router.navigate(['/admin/instractor']);
+        },
+        error: (error) => {
+          this.isLoading = false;
+          this.instractorDataError = 'Invalid Data';
+          console.error('Error adding instructor:', error);
+        },
+      });
+  }
+
+  ngOnDestroy(): void {
+    if (this.sub) {
+      this.sub.unsubscribe();
+    }
   }
 }
