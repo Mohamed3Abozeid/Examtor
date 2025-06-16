@@ -27,6 +27,8 @@ declare var bootstrap: any;
 export class AddExamComponent implements AfterViewInit, OnInit {
   private readonly _examApi = inject(ExamApiService);
   private readonly _studentApi = inject(StudentApiService);
+  @ViewChild('modalA') modalARef!: ElementRef;
+  @ViewChild('modalBComp') modalBComp!: ChoicesModalComponent;
   modalInstance: any;
   cources: Course[] = [];
   examId!: number;
@@ -43,9 +45,6 @@ export class AddExamComponent implements AfterViewInit, OnInit {
   ngOnInit(): void {
     this.getCources();
   }
-
-  @ViewChild('modalA') modalARef!: ElementRef;
-  @ViewChild('modalBComp') modalBComp!: ChoicesModalComponent;
 
   modalAInstance: any;
 
@@ -69,6 +68,7 @@ export class AddExamComponent implements AfterViewInit, OnInit {
   getCources() {
     this._studentApi.getCourse().subscribe({
       next: (response) => {
+        console.log('cources', response);
         this.cources = response.results;
       },
       error: (error) => {
@@ -77,16 +77,15 @@ export class AddExamComponent implements AfterViewInit, OnInit {
     });
   }
 
-  getname() {
-    console.log('hallow mohamed');
-  }
-
   addExam() {
     this.closeAndOpenB();
     this._examApi.addExam(this.addExamForm.value).subscribe({
       next: (response) => {
         console.log('Exam added successfully:', response);
-        // this.examId = response.id;
+        this.examId = response.id;
+        localStorage.setItem('ExamId', JSON.stringify(response.id));
+        console.log('examId', this.examId);
+        console.log('examId');
       },
       error: (error) => {
         console.error('Error adding exam:', error);

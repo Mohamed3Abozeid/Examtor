@@ -1,0 +1,57 @@
+@if (!firstStep) {
+<div class="container my-5 shadow rounded p-4 border  bg-light">
+  <form [formGroup]="examFakeForm" (ngSubmit)="onSubmit()">
+
+    <div class="mb-3">
+      <label for="title" class="form-label">Title:</label>
+      <input id="title" type="text" formControlName="title" class="form-control" />
+    </div>
+    <div class="mb-3">
+      <label for="numberOfQuestions" class="form-label">Number Of Question:</label>
+      <input id="title" type="nimber" formControlName="numberOfQuestions" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+      <label for="duration" class="form-label">Duration (Minuts):</label>
+      <input id="duration" type="number" formControlName="duration" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+      <label for="startDate" class="form-label">Start Date:</label>
+      <input id="startDate" type="datetime-local" formControlName="startDate" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+      <label for="endDate" class="form-label">End Date:</label>
+      <input id="endDate" type="datetime-local" formControlName="endDate" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-pink text-white d-block ms-auto">Submit</button>
+  </form>
+</div>
+}
+
+
+
+@else {
+
+
+
+
+<div class="container my-5 shadow rounded p-4 border bg-light">
+  <form [formGroup]="questionsForm" (ngSubmit)="onQuestionsSubmit()">
+    <div *ngFor="let question of questionsForm.controls.questions.controls; let i = index" [formGroupName]="i"
+      class="mb-4 border-bottom pb-3">
+      <label class="form-label fw-bold">Question {{ i + 1 }}:</label>
+      <input type="text" formControlName="questionText" class="form-control mb-2" placeholder="Enter question text" />
+
+      <div *ngFor="let choice of question.controls.choices.controls; let j = index" [formGroupName]="j"
+        class="mb-2 ms-3">
+        <label class="form-label">Choice {{ j + 1 }}:</label>
+        <input type="text" formControlName="choiceText" class="form-control" placeholder="Enter choice" />
+      </div>
+    </div>
+    <button type="submit" class="btn btn-pink text-white d-block ms-auto">Save Questions</button>
+  </form>
+</div>
+}

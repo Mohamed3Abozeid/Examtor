@@ -12,6 +12,7 @@ import { Router, RouterLink } from '@angular/router';
 import { jwtDecode } from 'jwt-decode';
 import { tokenData } from '../../../interfaces/auth';
 import { Subscription } from 'rxjs';
+import { FakeAddExamComponent } from '../../../../Intsractor/components/fakeComponents/fake-add-exam/fake-add-exam.component';
 
 @Component({
   selector: 'app-login',

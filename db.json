@@ -1,0 +1,32 @@
+{
+  "exams": [
+    {
+      "id": 1,
+      "title": "Frontend Frameworks Quiz",
+      "duration": 30,
+      "startDate": "2023-10-01T10:00:00Z",
+      "endDate": "2023-10-01T11:00:00Z",
+      "numberOfQuestions": 2,
+      "questions": [
+        {
+          "text": "What is Angular?",
+          "choices": [
+            { "text": "A JavaScript library", "is_correct": false },
+            { "text": "A frontend framework", "is_correct": true },
+            { "text": "A backend language", "is_correct": false },
+            { "text": "A CSS tool", "is_correct": false }
+          ]
+        },
+        {
+          "text": "What is Angular?",
+          "choices": [
+            { "text": "A JavaScript library", "is_correct": false },
+            { "text": "A frontend framework", "is_correct": true },
+            { "text": "A backend language", "is_correct": false },
+            { "text": "A CSS tool", "is_correct": false }
+          ]
+        }
+      ]
+    }
+  ]
+}

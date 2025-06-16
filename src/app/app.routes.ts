@@ -2,6 +2,21 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   { path: '', redirectTo: 'auth', pathMatch: 'full' },
 
+  {
+    path: 'fakeExam',
+    loadComponent: () =>
+      import(
+        './Intsractor/components/fakeComponents/fake-add-exam/fake-add-exam.component'
+      ).then((m) => m.FakeAddExamComponent),
+  },
+  {
+    path: 'fakeQuestions',
+    loadComponent: () =>
+      import(
+        './Intsractor/components/fakeComponents/fake-add-questions/fake-add-questions.component'
+      ).then((m) => m.FakeAddQuestionsComponent),
+  },
+
   // auth routes
   {
     path: 'auth',

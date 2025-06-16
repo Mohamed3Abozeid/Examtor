@@ -19,18 +19,47 @@ declare var bootstrap: any;
 export class ChoicesModalComponent {
   private readonly _examApis = inject(ExamApiService);
   @ViewChild('modalB') modalRef!: ElementRef;
-  // @Input() examId!: number;
+  @Input() examId!: number;
   dataError: boolean = false;
   isLoading: boolean = false;
-  numberOfQuestions: number = 0;
+  numberOfQuestions!: number;
   modalInstance: any;
   numQuestions!: number;
+  questionId!: number;
+  questionNumberForms: FormGroup = new FormGroup({
+    numberOfQuestion: new FormControl('', [Validators.required]),
+  });
   questionForm: FormGroup = new FormGroup({
-    // exam: new FormControl(this.examId, [Validators.required]),
+    exam: new FormControl(Number(localStorage.getItem('ExamId')), [
+      Validators.required,
+    ]),
     text: new FormControl('', [Validators.required]),
   });
-  choicesForm: FormGroup = new FormGroup({
-    question: new FormControl('', [Validators.required]),
+  choice1Form: FormGroup = new FormGroup({
+    question: new FormControl(Number(localStorage.getItem('QuestionId')), [
+      Validators.required,
+    ]),
+    text: new FormControl('', [Validators.required]),
+    is_correct: new FormControl(true, [Validators.required]),
+  });
+  choice2Form: FormGroup = new FormGroup({
+    question: new FormControl(Number(localStorage.getItem('QuestionId')), [
+      Validators.required,
+    ]),
+    text: new FormControl('', [Validators.required]),
+    is_correct: new FormControl(false, [Validators.required]),
+  });
+  choice3Form: FormGroup = new FormGroup({
+    question: new FormControl(Number(localStorage.getItem('QuestionId')), [
+      Validators.required,
+    ]),
+    text: new FormControl('', [Validators.required]),
+    is_correct: new FormControl(false, [Validators.required]),
+  });
+  choice4Form: FormGroup = new FormGroup({
+    question: new FormControl(Number(localStorage.getItem('QuestionId')), [
+      Validators.required,
+    ]),
     text: new FormControl('', [Validators.required]),
     is_correct: new FormControl(false, [Validators.required]),
   });
@@ -48,32 +77,55 @@ export class ChoicesModalComponent {
   }
 
   // addQuestion
-
+  getNumberOfQuestion() {
+    this.numberOfQuestions = Number(
+      this.questionNumberForms.value.numberOfQuestion
+    );
+  }
   submitQuestion() {
-    this._examApis.addQuestion(this.questionForm.value).subscribe({
-      next: (res) => {
-        console.log('true', res);
-      },
-      error: (err) => {
-        console.error('Error adding question:', err);
-      },
-    });
+    // console.log(this.numberOfQuestions);
+    console.log('question form', this.questionForm.value);
+
+    if (this.numberOfQuestions > 0) {
+      this._examApis.addQuestion(this.questionForm.value).subscribe({
+        next: (res) => {
+          console.log('true', res);
+          this.questionId = res.id;
+          console.log(this.questionId);
+
+          localStorage.setItem('QuestionId', JSON.stringify(res.id));
+        },
+        error: (err) => {
+          console.error('Error adding question:', err);
+        },
+      });
+    }
   }
 
   // questions choice
 
-  addChoice() {
-    console.log(this.choicesForm.value);
+  addChoice(formNumber: FormGroup) {
+    console.log(formNumber.value);
 
-    this._examApis.addChoices(this.choicesForm.value).subscribe({
+    this._examApis.addChoices(formNumber.value).subscribe({
       next: (res) => {
         console.log('Choice added successfully:', res);
-        this.choicesForm.reset();
+        formNumber.reset();
       },
       error: (err) => {
         console.error('Error adding choice:', err);
         this.dataError = true;
       },
     });
+  }
+
+  nextAndEnd() {
+    if (this.numberOfQuestions > 0) {
+      this.numberOfQuestions -= 1;
+    } else {
+      this.modalInstance?.hide();
+
+      this.close();
+    }
   }
 }
